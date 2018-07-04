@@ -27,6 +27,16 @@ export default new Router({
       path: '/first/demo1/:id',
       name: 'demo2',
       component: () => import('@/pages/first/demo1.vue')
+    },
+    {
+      path: '/second/demo1',
+      name: 'demo21', // name不可以重复
+      component: () => import('@/pages/second/demo1.vue')
+    },
+    {
+      path: '/second/demo2',
+      name: 'demo22',
+      component: () => import('@/pages/second/demo2.vue')
     }
   ]
 })
