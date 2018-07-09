@@ -36,15 +36,15 @@ export default {
 }
 </script>
 <style scoped>
-  button{
-    border-color:red;
-  }
-  .test1{
-    background-color: #fff;
-    color:pink;
-  }
-  .test2{
-    background-color: #000;
-    color:#fff;
-  }
+button {
+  border-color: red;
+}
+.test1 {
+  background-color: #fff;
+  color: pink;
+}
+.test2 {
+  background-color: #000;
+  color: #fff;
+}
 </style>
