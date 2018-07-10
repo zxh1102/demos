@@ -37,6 +37,16 @@ export default new Router({
       path: '/second/demo2',
       name: 'demo22',
       component: () => import('@/pages/second/demo2.vue')
+    },
+    {
+      path: '/third/demo1',
+      name: 'demo31',
+      component: () => import('@/pages/third/demo1.vue')
+    },
+    {
+      path: '/third/demo2',
+      name: 'demo32',
+      component: () => import('@/pages/third/demo2.vue')
     }
   ]
 })
