@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+
+<body>
+    <button data-event="test" data-align="top right">open dialog</button>
+    <button data-event="test" data-align="top left" style="position:absolute;right:0;top:0;width:100px">open dialog</button>
+
+    <a data-event="test" data-align="top right" href="javascript:;">open dialog</a>
+    <script src="../lib/jquery-1.10.2.js"></script>
+    <script src="../dist/dialog.js"></script>
+    <script>
+        jQuery('[data-event=test]').on('click', function() {
+            var d = dialog({
+                id: 'align-test',
+                title: '消息',
+                content: '文案文案文案',
+                okValue: '确定',
+                align: $(this).data('align'),
+                //height: 1024,
+                ok: function() {},
+                cancelValue: '取消',
+                cancel: function() {}
+            });
+            d.show(this);
+        });
+    </script>
+</body>
+
+</html>

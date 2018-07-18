@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>各种已经应用的对话框</title>
+	<link rel="stylesheet" href="css/base.min.css">
+	<link rel="stylesheet" href="css/dialog.css">
+</head>
+<body>
+	<ul>
+		<li>
+			<p>普通对话框</p>
+			<p><a href="javascript:;" id="test1">按钮</a></p>
+		</li>
+		<li>
+			<p>普通对话框-按钮</p>
+			<p><a href="javascript:;" id="test4">按钮各种状态</a><a href="javascript:;" id="test5">确认&取消按钮</a></p>
+		</li>
+
+		<li>
+			<p>气泡浮层</p>
+			<p id="quickref-bubble"><a href="javascript:;" id="test3">按钮</a></p>
+		</li>
+		<li>
+			<p>控制对话框关闭</p>
+			<p><a href="javascript:;" id="test6">按钮</a></p>
+		</li>
+		<li>
+			<p>模态对话框</p>
+			<p><a href="javascript:;" id="test2">按钮</a></p>
+		</li>
+		<li>
+			<p>给对话框左下角添加复选框</p>
+			<p><a href="javascript:;" id="test7">按钮</a></p>
+		</li>
+		<!-- <li>
+			<p>iframe</p>
+			<iframe src="iframe/index.html" frameborder="0"></iframe>
+		</li> -->
+	</ul>
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/dialog.js"></script>
+	<script>
+		jQuery('#test1').on('click', function() {
+			var d = dialog({
+				title: '标题',
+				content: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
+				width:'300px',	// 内容区域的宽度
+				fixed:true,	//(默认值: false) 开启固定定位
+			});
+			d.showModal();
+		});
+		jQuery('#test2').on('click', function() {
+			var d = dialog({
+				title: 'message',
+				content: '<div class="mb15"><span>姓名：</span><input type="text" autofocus /></div><div class="mb15"><span>姓名：</span><input type="text" /></div><div class="mb15"><span>姓名：</span><input type="text" /></div><div class="mb15"><span>姓名：</span><input type="text" /></div><div class="mb15"><span>姓名：</span><input type="text" /></div>',
+			});
+			d.showModal();
+		});
+
+		var test3 = dialog({
+			align:'top left',
+			content: 'Hello World!',
+			skin:'ics_tips',
+			// quickClose: true// 点击空白处快速关闭
+		});
+		$(document).on('click',function(){
+			test3.close();
+		});
+		jQuery('#test3').on('mouseenter', function() {
+			test3.show(document.getElementById('quickref-bubble'));
+		});
+		// jQuery('#test3').on('mouseleave', function() {
+		// 	test3.close();
+		// });
+		jQuery('#test4').on('click', function() {
+			var d = dialog({
+				title: '提示',
+				content: '按钮回调函数返回 false 则不许关闭',
+				button: [
+					{
+						value: '同意',
+						callback: function () {
+							this
+							.content('你同意了');
+							return false;
+						},
+						autofocus: true
+					},
+					{
+						value: '不同意',
+						callback: function () {
+							alert('你不同意')
+						}
+					},
+					{
+						id: 'button-disabled',
+						value: '无效按钮',
+						disabled: true
+					},
+					{
+						value: '关闭我'
+					}
+				],
+			});
+			d.showModal();
+		});
+		jQuery('#test5').on('click', function() {
+			var d = dialog({
+				title: '提示',
+				content: '按钮回调函数返回 false 则不许关闭',
+				okValue: '确定',
+				ok: function () {
+					this.title('提交中…');
+					return false;
+				},
+				cancelValue: '取消',
+				cancel: function () {}
+			});
+			d.showModal();
+		});
+		jQuery('#test6').on('click', function() {
+			var d = dialog({
+				content: '对话框将在两秒内关闭'
+			});
+			d.showModal();
+			setTimeout(function () {
+				d.close().remove();
+				// close()方法只隐藏对话框，不会在 DOM 中删除，删除请使用remove()方法
+			}, 2000);
+		});
+		jQuery('#test7').on('click', function() {
+			var d = dialog({
+				title: '欢迎',
+				content: '欢迎使用 artDialog 对话框组件！',
+				ok: function () {},
+				statusbar: '<label><input type="checkbox">不再提醒</label>'
+			});
+			d.showModal();
+		});
+		// jQuery('#test8').on('click', function() {
+		// 	var d = dialog({
+		// 		title: '欢迎',
+		// 		content: '欢迎使用 artDialog 对话框组件！',
+		// 		cancel: false,
+		// 		ok: function () {}
+		// 	});
+		// 	d.show();
+		// });
+
+	/*
+		var demo = dialog({
+			title: '',						//标题内容
+			content: '',					//设置消息内容
+			ok: function () {},				//确定按钮
+			okValue:'',						//确定按钮文本
+			cancel: false,					//取消按钮
+			cancelValue:'',					//取消按钮文本
+			cancelDisplay:true,				//是否显示取消按钮
+			button:[],						//自定义按钮组
+			width:'',						//width
+			height:'',						//height
+			skin:'',						//设置对话框额外的className参数。多个className请使用空格隔开。
+			padding:'0',					//padding
+			fixed:false,					//(默认值: false) 开启固定定位
+			align:'bottom left',			//设置对话框与其他元素的对齐方式。
+			autofocus:true,					//是否支持自动聚焦
+			quickClose:false,				//是否点击空白出快速关闭
+			zIndex:1024,					//z-index
+			onshow:function(){},			//对话框打开的事件。
+			onclose:function(){},			//对话框关闭后执行的事件
+			onbeforeremove:function(){},	//对话框销毁之前事件。
+			onremove:function(){},			//对话框销毁事件
+			onfocus:function(){},			//对话框获取焦点事件
+			onblur:function(){},			//对话框失去焦点事件。
+			onreset:function(){},			//对话框位置重置事件。
+			id:'',							//设定对话框唯一标识。
+
+		});
+		// 属性 
+		//open
+		//判断对话框是否被打开。
+		//returnValue
+		//对话框返回值。
+
+		demo.show();//显示
+		demo.showModal();//带黑色蒙层
+		demo.title('');//填充标题
+		demo.content('');//填充内容
+		demo.close();//隐藏对话框
+		demo.remove();//销毁对话框
+		demo.width();//设置宽度
+		demo.height();//设置高度
+		demo.reset();//手动刷新对话框位置
+		demo.button(args);
+		demo.focus();//聚焦&置顶
+		demo.blur();//失去焦点
+		demo.addEventListener(type, callback);//添加事件。
+		demo.removeEventListener(type, callback);//删除事件。
+		demo.dialog.get(id);//根据获取打开的对话框实例。
+		demo.dialog.getCurrent();//获取当前（置顶）对话框实例。
+	*/
+
+
+	</script>
+</body>
+</html>
