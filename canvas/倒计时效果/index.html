@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>canvas-demo</title>
+</head>
+
+<body>
+	<style>
+		#canvas {
+			border: 1px solid #ebebeb;
+			display: block;
+			margin: 0 auto;
+		}
+	</style>
+	<!-- canvas中的文字在支持的情况下不会显示 -->
+	<canvas id="canvas">
+		<!-- 降级处理 -->
+		当前浏览器不支持Canvas，请切换浏览器后再试
+	</canvas>
+	<script>/*
+		window.onload = function(){
+			var canvas = document.getElementById('canvas');
+			var context = canvas.getContext('2d');
+
+			//设置宽高 涉及分辨率 不需要写单位
+			canvas.height = 768;
+			canvas.width = 1024;
+
+			// 兼容性处理
+			// getContext返回的绘图的 上下文环境是否为空
+			// getContext学习的重点
+			if(canvas.getContext('2d')){
+				// 使用context进行绘制
+				var canvas = canvas.getContext('2d');
+			}
+			else{
+				alert('当前浏览器不支持Canvas，请切换浏览器后再试');
+			}
+
+
+<!-- cancas的绘图是一种基于状态的绘图 -->
+			// demo1:确定多边形的顶点坐标，依次相连，即画出多边形图案
+			// 使用context进行绘制
+			// 状态设置
+			// 笔尖放置位置
+<!-- begin -->
+			context.beginPath();
+			// 起始位置
+			context.moveTo(100,100);
+			// 下一步的位置
+			context.lineTo(700,700);
+			context.lineTo(100,700);
+			context.lineTo(100,100);
+
+			context.closePath();
+<!-- close -->
+
+			// 设置线条宽度
+			context.lineWidth = 5;
+			// 线条样式，主要指颜色
+			context.strokeStyle = "red";
+			// 填充颜色
+			context.fillStyle = "rgba(0,0,0,.3)";
+			
+			// ***具体的绘制动作，以上只是构建***
+			// 画的动作:stroke笔画，用于绘制线条
+			context.stroke();
+			// 填充方法
+			// 会自动首尾相连再进行填充
+			context.fill();
+
+			// 画第二个图像
+			// 开始新的图
+			context.beginPath();
+			context.moveTo(200,100);
+			context.lineTo(700,600);
+			context.closePath();
+			context.strokeStyle = "black";
+			context.stroke();
+
+
+			// 画弧线
+			// context.arc(
+			// 	centerx,centery,radius,startingAngle,endingAngle,anticlockwise = false
+			// )
+			// 圆心坐标centerx，centery，圆半径radius,弧线的弧度值为始startingAngle，弧线的弧度值为止endingAngle，（可选）顺逆时针绘制，false为顺时针(默认顺时针)
+			// 起始点为水平右边开始 0pi,0.5pi,1pi,1.5pi,2(0)pi
+
+
+			context.beginPath();
+			context.arc(300,300,200,0,1.5*Math.PI);
+			context.strokeStyle = "blue";
+			// context.closePath();
+			context.stroke();
+
+		}*/
+	</script>
+	<!-- 数组 -->
+	<script src="js/digit.js"></script>
+	<!-- 具体的执行函数 -->
+	<script src="js/countdown.js"></script>
+</body>
+
+</html>
