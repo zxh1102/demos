@@ -40,13 +40,13 @@ window.onload = function() {
   var canvas = document.getElementById('canvas')
   var context = canvas.getContext('2d')
   // 根据屏幕自适应画布大小设置-开始
-
   WINDOW_WIDTH = document.body.clientWidth
   WINDOW_HEIGHT = document.body.clientHeight
   // 期望的是时钟数字占屏幕的五分之四，所以左右两边各站十分之一
   MARGIN_LEFT = Math.round(WINDOW_WIDTH / 10)
   // (WINDOW_WIDTH * 4) / 5 是左右数字+冒号的宽度
   // (WINDOW_WIDTH * 4) / 5 / 108 是每个小球的半径+1
+  // Math.round四舍五入
   RADIUS = Math.round((WINDOW_WIDTH * 4) / 5 / 108) - 1
 
   MARGIN_TOP = Math.round(WINDOW_HEIGHT / 5)
@@ -58,11 +58,10 @@ window.onload = function() {
   curShowTimeSeconds = getCurrentShowTimeSeconds()
 
   // 制作动画的简单架构
-  // setInterval(function() {
-  //   render(context)
-  //   update()
-  // }, 100)
-
+  setInterval(function() {
+    render(context)
+    update()
+  }, 100)
   console.log(WINDOW_WIDTH)
   console.log(WINDOW_HEIGHT)
   console.log(MARGIN_LEFT)
@@ -173,7 +172,7 @@ function updateBalls() {
   }
   // while (balls.length > cnt) {
   // 长度最多为300
-  while (balls.length > Math.min(300, cnt)) {
+  while (balls.length > Math.min(1000, cnt)) {
     // pop() 方法用于删除并返回数组的最后一个元素。
     balls.pop()
   }
@@ -193,7 +192,7 @@ function addBalls(x, y, num) {
           // RADIUS
           // 小球加速度（重力加速度）
           // 1.5-2.5
-          g: 1.5 + Math.random(),
+          g: 2 + Math.random(),
           // x轴方向速度
           // 随机-4或者4
           vx: Math.pow(-1, Math.ceil(Math.random() * 1000)) * 4,
@@ -271,7 +270,7 @@ function render(cxt) {
   for (var i = 0; i < balls.length; i++) {
     cxt.fillStyle = balls[i].colors
     cxt.beginPath()
-    // cxt.arc(balls[i].x, balls[i].y, RADIUS, 0, 2 * Math.PI, true)
+    cxt.arc(balls[i].x, balls[i].y, RADIUS, 0, 2 * Math.PI, true)
     cxt.closePath()
     cxt.fillStyle = balls[i].color
     cxt.fill()
@@ -287,7 +286,7 @@ function renderDigit(x, y, num, cxt) {
     // 循环绘制小球
     for (var j = 0; j < digit[num][i].length; j++) {
       if (digit[num][i][j] == 1) {
-        // 球形
+        // // 球形
         // cxt.beginPath()
         // cxt.arc(
         //   x + j * 2 * (RADIUS + 1) + (RADIUS + 1),
@@ -313,7 +312,6 @@ function renderDigit(x, y, num, cxt) {
         // 填充颜色
         cxt.fill()
         cxt.closePath
-      } else {
       }
     }
   }
