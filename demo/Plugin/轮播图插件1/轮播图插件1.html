@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Waterwheel Carousel Demo</title>
+  <script src="../public/jquery1.10.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery.waterwheelCarousel2.3.0.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      var carousel = $("#carousel").waterwheelCarousel({
+        flankingItems: 3,
+        movingToCenter: function ($item) {
+          $('#callback-output').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
+        },
+        movedToCenter: function ($item) {
+          $('#callback-output').prepend('movedToCenter: ' + $item.attr('id') + '<br/>');
+        },
+        movingFromCenter: function ($item) {
+          $('#callback-output').prepend('movingFromCenter: ' + $item.attr('id') + '<br/>');
+        },
+        movedFromCenter: function ($item) {
+          $('#callback-output').prepend('movedFromCenter: ' + $item.attr('id') + '<br/>');
+        },
+        clickedCenter: function ($item) {
+          $('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
+        }
+      });
+
+      $('#prev').bind('click', function () {
+        carousel.prev();
+        return false
+      });
+
+      $('#next').bind('click', function () {
+        carousel.next();
+        return false;
+      });
+
+      $('#reload').bind('click', function () {
+        newOptions = eval("(" + $('#newoptions').val() + ")");
+        carousel.reload(newOptions);
+        return false;
+      });
+
+    });
+  </script>
+  <style type="text/css">
+    body {
+      font-family: Arial;
+      font-size: 12px;
+      background: #ededed;
+    }
+
+    .example-desc {
+      margin: 3px 0;
+      padding: 5px;
+    }
+
+    #carousel {
+      width: 960px;
+      border: 1px solid #222;
+      height: 300px;
+      position: relative;
+      clear: both;
+      overflow: hidden;
+      background: #FFF;
+    }
+
+    #carousel img {
+      visibility: hidden;
+      /* hide images until carousel can handle them */
+      cursor: pointer;
+      /* otherwise it's not as obvious items can be clicked */
+    }
+
+    .split-left {
+      width: 450px;
+      float: left;
+    }
+
+    .split-right {
+      width: 400px;
+      float: left;
+      margin-left: 10px;
+    }
+
+    #callback-output {
+      height: 250px;
+      overflow: scroll;
+    }
+
+    textarea#newoptions {
+      width: 430px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Carousel Demo</h1>
+  <div id="carousel">
+    <a href="#">
+      <img src="images/a1.png" id="item-1" />
+    </a>
+    <a href="#">
+      <img src="images/a2.png" id="item-2" />
+    </a>
+    <a href="#">
+      <img src="images/a3.png" id="item-3" />
+    </a>
+    <!-- <a href="#">
+      <img src="images/a4.png" id="item-4" />
+    </a>
+    <a href="#">
+      <img src="images/a5.png" id="item-5" />
+    </a> -->
+  </div>
+  <a href="#" id="prev">Prev</a> |
+  <a href="#" id="next">Next</a>
+  <br />
+  <div class="split-left">
+    <h2>Set Options (view available options)</h2>
+    <p>您可以在此处为旋转木马设置新选项。 一旦您对旋转木马的外观感到满意，只需将选项复制并粘贴到您自己的实现中即可。</p>
+    <textarea id="newoptions" rows="15">
+      { flankingItems: 3, movingToCenter: function ($item) { $('#callback-output').prepend('movingToCenter: ' + $item.attr('id')
+      + '
+      <br/>'); }, movedToCenter: function ($item) { $('#callback-output').prepend('movedToCenter: ' + $item.attr('id') + '
+      <br/>'); }, movingFromCenter: function ($item) { $('#callback-output').prepend('movingFromCenter: ' + $item.attr('id') +
+      '
+      <br/>'); }, movedFromCenter: function ($item) { $('#callback-output').prepend('movedFromCenter: ' + $item.attr('id') + '
+      <br/>'); }, clickedCenter: function ($item) { $('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '
+      <br/>'); } }
+    </textarea>
+    <br />
+    <a href="#" id="reload">重新加载新选项</a>
+  </div>
+  <div class="split-right">
+    <h2>Sample callback output</h2>
+    <div id="callback-output">
+    </div>
+  </div>
+</body>
+
+</html>
