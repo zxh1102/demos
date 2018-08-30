@@ -9,5 +9,13 @@ export default new Router({
     path: '/',
     name: 'HelloWorld',
     component: HelloWorld
-  }]
+  },
+    // 配置路由
+  {
+    path: '/first/index',
+    name: 'first',
+    component: () =>
+        import('@/pages/first/index.vue')
+  }
+  ]
 })
