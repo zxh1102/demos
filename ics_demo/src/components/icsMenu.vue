@@ -1,5 +1,5 @@
 <template>
-  <div class="menu">
+  <div class="components_menu">
     <ul>
       <li v-for="(item,index) in list" :key="'menu'+index">
         <a v-bind:href="'#'+item.id" v-text="item.name"></a>
@@ -16,56 +16,56 @@ export default {
     return {
       msg: 'icsMenu',
       list: [{
-        id: '主框架',
-        name: 'body'
+        name: '主框架',
+        id: '@/pages/first/body'
       }, {
-        id: '头部',
-        name: 'top'
+        name: '头部',
+        id: 'top'
       }, {
-        id: '导航',
-        name: 'nav'
+        name: '导航',
+        id: 'nav'
       }, {
-        id: '左侧菜单',
-        name: 'menu'
+        name: '左侧菜单',
+        id: 'menu'
       }, {
-        id: '面包屑',
-        name: 'crumbs'
+        name: '面包屑',
+        id: 'crumbs'
       }, {
-        id: '表单',
-        name: 'form'
+        name: '表单',
+        id: 'form'
       }, {
-        id: '表格',
-        name: 'table'
+        name: '表格',
+        id: 'table'
       }, {
-        id: '列表',
-        name: 'list'
+        name: '列表',
+        id: 'list'
       }, {
-        id: '图标',
-        name: 'icon'
+        name: '图标',
+        id: 'icon'
       }, {
-        id: '按钮',
-        name: 'btn'
+        name: '按钮',
+        id: 'btn'
       }, {
-        id: '标题',
-        name: 'title'
+        name: '标题',
+        id: 'title'
       }, {
-        id: '选项卡',
-        name: 'tab'
+        name: '选项卡',
+        id: 'tab'
       }, {
-        id: '分页',
-        name: 'page'
+        name: '分页',
+        id: 'page'
       }, {
-        id: '提示',
-        name: 'tips'
+        name: '提示',
+        id: 'tips'
       }, {
-        id: '焦点图',
-        name: 'focus'
+        name: '焦点图',
+        id: 'focus'
       }, {
-        id: '弹窗',
-        name: 'layer'
+        name: '弹窗',
+        id: 'layer'
       }, {
-        id: '未定义',
-        name: 'demo1'
+        name: '未定义',
+        id: 'demo1'
       }]
     }
   }
@@ -73,7 +73,15 @@ export default {
 </script>
 
 <style scoped>
-.menu {
+.components_menu {
+}
+.ul {
   border-right: 1px solid #fafafa;
+  padding-right: 20px;
+  text-align: right;
+}
+a {
+  color: #333;
+  padding: 10px;
 }
 </style>

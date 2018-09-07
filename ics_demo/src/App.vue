@@ -11,8 +11,8 @@ export default {
 </script>
 <style>
 /*引入公共样式*/
-@import './../static/css/base.min.css';
+@import './../static/css/base.css';
 @import './../static/css/common.css';
 @import './../static/css/common_new.css';
-@import './../static/css/blue_skin.min.css';
+@import './../static/css/blue_skin.css';
 </style>

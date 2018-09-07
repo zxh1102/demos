@@ -1,5 +1,5 @@
 <template>
-  <div class="con">{{msg}}</div>
+  <div class="components_con">{{msg}}</div>
 </template>
 
 <script>
@@ -15,6 +15,6 @@ export default {
 </script>
 
 <style scoped>
-.con {
+.components_con {
 }
 </style>
