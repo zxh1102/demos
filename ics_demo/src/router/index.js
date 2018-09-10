@@ -16,14 +16,14 @@ export default new Router({
     component: () =>
         import('@/pages/first/index.vue')
   }
-  ],
+  ]
   // 解决了锚点定位
-  mode: 'history',
-  srcollBehavior (to, from, savedPosition) {
-    if (to.hash) {
-      return {
-        selector: to.hash
-      }
-    }
-  }
+  // mode: 'history',
+  // srcollBehavior (to, from, savedPosition) {
+  //   if (to.hash) {
+  //     return {
+  //       selector: to.hash
+  //     }
+  //   }
+  // }
 })
