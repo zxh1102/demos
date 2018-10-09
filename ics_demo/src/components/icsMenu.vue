@@ -14,59 +14,65 @@ export default {
     return {
       curNum: 0,
       msg: 'icsMenu',
-      list: [
-        {
-          name: '主框架',
-          id: 'icsBody'
-        }, {
-          name: '头部',
-          id: 'icsTop'
-        }, {
-          name: '导航',
-          id: 'icsNav'
-        }, {
-          name: '左侧菜单',
-          id: 'icsMenu'
-        }, {
-          name: '面包屑',
-          id: 'icsCrumbs'
-        }, {
-          name: '表单',
-          id: 'icsForm'
-        }, {
-          name: '表格',
-          id: 'icsTable'
-        }, {
-          name: '列表',
-          id: 'icsList'
-        }, {
-          name: '图标',
-          id: 'icsIcon'
-        }, {
-          name: '按钮',
-          id: 'icsBtn'
-        }, {
-          name: '标题',
-          id: 'icsTitle'
-        }, {
-          name: '选项卡',
-          id: 'icsTab'
-        }, {
-          name: '分页',
-          id: 'icsPage'
-        }, {
-          name: '提示',
-          id: 'icsTips'
-        }, {
-          name: '焦点图',
-          id: 'icsFocus'
-        }, {
-          name: '弹窗',
-          id: 'icsLayer'
-        }, {
-          name: '未定义',
-          id: 'icsDemo1'
-        }
+      list: [{
+        name: '基础引入',
+        id: 'icsBase'
+      }, {
+        name: '插件',
+        id: 'icsPlugin'
+      },
+      {
+        name: '主框架',
+        id: 'icsBody'
+      }, {
+        name: '头部',
+        id: 'icsTop'
+      }, {
+        name: '导航',
+        id: 'icsNav'
+      }, {
+        name: '左侧菜单',
+        id: 'icsMenu'
+      }, {
+        name: '面包屑',
+        id: 'icsCrumbs'
+      }, {
+        name: '表单',
+        id: 'icsForm'
+      }, {
+        name: '表格',
+        id: 'icsTable'
+      }, {
+        name: '列表',
+        id: 'icsList'
+      }, {
+        name: '标题',
+        id: 'icsTitle'
+      }, {
+        name: '图标',
+        id: 'icsIcon'
+      }, {
+        name: '按钮',
+        id: 'icsBtn'
+      }, {
+        name: '选项卡',
+        id: 'icsTab'
+      }, {
+        name: '分页',
+        id: 'icsPage'
+      }, {
+        name: '提示',
+        id: 'icsTips'
+      }, {
+        name: '弹窗',
+        id: 'icsLayer'
+      }, {
+        name: '焦点图',
+        id: 'icsFocus'
+      }, {
+        name: '未定义',
+        id: 'icsDemo1'
+      }
       ]
     }
   },
@@ -91,7 +97,8 @@ export default {
 }
 ul {
   border-right: 1px solid transparent;
-  padding-right: 20px;
+  margin-right: 20px;
+  background-color: #fff;
 }
 li {
   padding: 10px 20px;

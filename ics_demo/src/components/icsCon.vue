@@ -10,6 +10,8 @@
 
 // 导入子组件
 import icsBody from '@/components/icsComponents/icsBody'
+import icsPlugin from '@/components/icsComponents/icsPlugin'
+import icsBase from '@/components/icsComponents/icsBase'
 import icsTop from '@/components/icsComponents/icsTop'
 import icsNav from '@/components/icsComponents/icsNav'
 import icsMenu from '@/components/icsComponents/icsMenu'
@@ -31,6 +33,8 @@ export default {
   name: 'icsCon',
   props: ['curViewName'],
   components: {
+    icsBase,
+    icsPlugin,
     icsBody,
     icsTop,
     icsNav,
@@ -49,7 +53,6 @@ export default {
     icsLayer,
     icsDemo1
   },
-
   data () {
     return {
     }
@@ -59,6 +62,7 @@ export default {
 
 <style scoped>
 .components_con {
-  padding: 10px 20px;
+  height: 100%;
+  overflow: auto;
 }
 </style>

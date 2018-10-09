@@ -6,11 +6,14 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  ready () {
+
+  }
 }
 </script>
 <style>
-/*引入公共样式*/
+/* 引入公共样式 */
 @import './../static/css/base.css';
 @import './../static/css/common.css';
 @import './../static/css/common_new.css';

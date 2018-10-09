@@ -33,6 +33,7 @@ a.link:hover {
   color: #4ca6ff;
 }
 
+/* color */
 .stress {
   color: #e94949 !important;
 }
@@ -63,6 +64,81 @@ a.link:hover {
 
 .grey-lighter {
   color: #ccc !important;
+}
+
+.success {
+  color: #74d17e
+}
+
+.danger {
+  color: #ff5953
+}
+
+.default {
+  color: #333
+}
+
+.grey-link {
+  color: #a6a6a6;
+  font-size: 12px
+}
+
+.grey-link:hover {
+  color: #5a82f0
+}
+
+.black-link {
+  color: #666;
+  font-size: 12px
+}
+
+.black-link:hover {
+  color: #5a82f0
+}
+
+.lineheight1 {
+  line-height: 1
+}
+
+.linebottom-f5 {
+  border-bottom: 1px solid #f5f5f5
+}
+
+.line-blue {
+  display: inline-block;
+  width: 10px;
+  height: 3px;
+  background-color: #7f9edd;
+  vertical-align: middle
+}
+
+.line-org {
+  display: inline-block;
+  vertical-align: middle;
+  width: 10px;
+  height: 3px;
+  background-color: #ff7e45
+}
+
+.img-round {
+  border-radius: 50px
+}
+
+.red {
+  color: #ff5f55
+}
+
+.green {
+  color: #50cd97
+}
+
+
+a.dark {
+  color: #666
+}
+
+a.dark:hover {
+  color: #5a82f0
 }
 
 .ics_top {

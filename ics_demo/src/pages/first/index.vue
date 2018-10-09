@@ -13,8 +13,10 @@ import icsTop from '@/components/icsTop.vue'
 import icsMenu from '@/components/icsMenu.vue'
 import icsCon from '@/components/icsCon.vue'
 import icsFooter from '@/components/icsFooter.vue'
-
 export default {
+  // ready () {
+  //   $('body').hide()
+  // },
   components: {
     icsTop,
     icsMenu,
@@ -23,11 +25,11 @@ export default {
   },
   data () {
     return {
-      curView: 'icsBody'
+      curView: 'icsBase'
     }
   },
   methods: {
-    getData: function (data) { this.curView = data }
+    getData: function (e) { this.curView = e }
   }
 }
 </script>
@@ -48,7 +50,6 @@ html {
   position: relative;
   width: 1200px;
   margin: 10px auto;
-  background-color: #fff;
   border-radius: 5px;
 }
 .part_left {
@@ -60,9 +61,10 @@ html {
   overflow: auto;
 }
 .part_right {
-  padding-left: 144px;
-  height: calc(100vh - 142px);
-  overflow: auto;
+  margin-left: 144px;
+  height: calc(100vh - 162px);
+  background-color: #fff;
+  padding: 10px;
 }
 .part_footer {
   background-color: #3f464c;
@@ -73,18 +75,5 @@ html {
   line-height: 42px;
   font-size: 14px;
   padding: 4px 0;
-}
-// 代码
-.mod-code {
-  margin: 10px 0;
-  overflow: auto;
-  background-color: #2f3640;
-}
-.prettyprint {
-  background: #2f3640;
-  font-family: Menlo, 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', Monaco,
-    Consolas, monospace;
-  border: 0 !important;
-  line-height: 16px;
 }
 </style>
