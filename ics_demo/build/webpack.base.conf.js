@@ -36,7 +36,12 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      'jquery': 'jquery'
+      // 'jquery': 'jquery',
+      'jquery': path.resolve(__dirname, '../node_modules/jquery/src/jquery'),
+
+      // 'mCustomScrollbar': path.resolve(__dirname, '../static/js/jquery.mCustomScrollbar.min.js'),
+
+      // 'directives': path.resolve(__dirname, '../src/directives')
     }
   },
   module: {
@@ -92,8 +97,12 @@ module.exports = {
   },
   plugins: [
     new webpack.ProvidePlugin({
+      $: "jquery",
       jQuery: "jquery",
-      $: "jquery"
+      jquery: "jquery",
+      "window.jQuery": "jquery"
+      // mCustomScrollbar: 'mCustomScrollbar',
+      // $mCustomScrollbar: 'mCustomScrollbar'
     })
   ]
 }

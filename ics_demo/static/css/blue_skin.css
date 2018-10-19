@@ -1,8 +1,9 @@
 @charset "utf-8";
 
+/* 基础颜色 */
 body,
 html {
-  background: url(img/main_bg.png) repeat-y #f5f5f5;
+  background: url('img/main_bg.png') repeat-y #f5f5f5;
   color: #666;
 }
 
@@ -33,7 +34,15 @@ a.link:hover {
   color: #4ca6ff;
 }
 
-/* color */
+/* 颜色值定义 */
+.red {
+  color: #ff5f55
+}
+
+.green {
+  color: #50cd97
+}
+
 .stress {
   color: #e94949 !important;
 }
@@ -66,6 +75,10 @@ a.link:hover {
   color: #ccc !important;
 }
 
+.grey-lighterer {
+  color: #e6e6e6 !important
+}
+
 .success {
   color: #74d17e
 }
@@ -87,6 +100,14 @@ a.link:hover {
   color: #5a82f0
 }
 
+.grey-link2 {
+  color: #666
+}
+
+.grey-link2:hover {
+  color: #807fff
+}
+
 .black-link {
   color: #666;
   font-size: 12px
@@ -96,10 +117,16 @@ a.link:hover {
   color: #5a82f0
 }
 
-.lineheight1 {
-  line-height: 1
+
+a.dark {
+  color: #666
 }
 
+a.dark:hover {
+  color: #5a82f0
+}
+
+/* 线 */
 .linebottom-f5 {
   border-bottom: 1px solid #f5f5f5
 }
@@ -120,27 +147,12 @@ a.link:hover {
   background-color: #ff7e45
 }
 
+/* 圆角 */
 .img-round {
   border-radius: 50px
 }
 
-.red {
-  color: #ff5f55
-}
-
-.green {
-  color: #50cd97
-}
-
-
-a.dark {
-  color: #666
-}
-
-a.dark:hover {
-  color: #5a82f0
-}
-
+/* 风格色值 */
 .ics_top {
   background-color: #4167bf;
 }

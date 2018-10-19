@@ -171,7 +171,60 @@ a {
   transition: background-color 0.2s, border-color 0.2s;
 }
 
-/* 边距定义 */
+/* 特殊边距 */
+.mt1- {
+  margin-top: -1px !important
+}
+
+.mt4- {
+  margin-top: -4px !important
+}
+
+.mt8- {
+  margin-top: -8px !important;
+}
+
+.mr8 {
+  margin-right: 8px !important;
+}
+
+.mr12 {
+  margin-right: 12px !important;
+}
+
+.mr16 {
+  margin-right: 16px !important;
+}
+
+.mr40 {
+  margin-right: 40px !important;
+}
+
+.ml40 {
+  margin-left: 40px !important;
+}
+
+.mb40 {
+  margin-bottom: 40px !important;
+}
+
+.mr60 {
+  margin-right: 60px !important;
+}
+
+.pb28 {
+  padding-bottom: 28px !important
+}
+
+.pb30 {
+  padding-bottom: 30px !important
+}
+
+.pl46 {
+  padding-left: 46px !important
+}
+
+/* 边距定义 0-30 */
 .mt0 {
   margin-top: 0 !important;
 }
@@ -204,6 +257,10 @@ a {
   margin-top: 20px !important;
 }
 
+.mt25 {
+  margin-top: 25px !important;
+}
+
 .mt30 {
   margin-top: 30px !important;
 }
@@ -212,36 +269,26 @@ a {
   margin-right: 5px !important;
 }
 
-.mr8 {
-  margin-right: 8px !important;
-}
 
 .mr10 {
   margin-right: 10px !important;
 }
 
-.mr12 {
-  margin-right: 12px !important;
-}
 
 .mr15 {
   margin-right: 15px !important;
-}
-
-.mr16 {
-  margin-right: 16px !important;
 }
 
 .mr20 {
   margin-right: 20px !important;
 }
 
-.mr30 {
-  margin-right: 30px !important;
+.mr25 {
+  margin-right: 20px !important;
 }
 
-.mr40 {
-  margin-right: 40px !important;
+.mr30 {
+  margin-right: 30px !important;
 }
 
 .mb5 {
@@ -260,13 +307,14 @@ a {
   margin-bottom: 20px !important;
 }
 
+.mb25 {
+  margin-bottom: 25px !important;
+}
+
 .mb30 {
   margin-bottom: 30px !important;
 }
 
-.mb40 {
-  margin-bottom: 40px !important;
-}
 
 .ml5 {
   margin-left: 5px !important;
@@ -284,12 +332,28 @@ a {
   margin-left: 20px !important;
 }
 
+.ml25 {
+  margin-left: 25px !important;
+}
+
 .ml30 {
   margin-left: 30px !important;
 }
 
-.ml40 {
-  margin-left: 40px !important;
+.pt0 {
+  padding-top: 0 !important
+}
+
+.pr0 {
+  padding-right: 0 !important
+}
+
+.pb0 {
+  padding-bottom: 0 !important
+}
+
+.pl0 {
+  padding-left: 0 !important
 }
 
 .pt5 {
@@ -306,6 +370,10 @@ a {
 
 .pt20 {
   padding-top: 20px !important;
+}
+
+.pr5 {
+  padding-right: 5px !important;
 }
 
 .pr10 {
@@ -336,6 +404,10 @@ a {
   padding-bottom: 20px !important;
 }
 
+.pl5 {
+  padding-left: 5px !important;
+}
+
 .pl10 {
   padding-left: 10px !important;
 }
@@ -360,40 +432,13 @@ a {
   padding: 20px !important;
 }
 
-.mt8- {
-  margin-top: -8px !important;
-}
-
-.mr60 {
-  margin-right: 60px !important;
-}
-
-.mt1- {
-  margin-top: -1px
-}
-
-.mt4- {
-  margin-top: -4px !important
-}
-
+/* 宽度 高度 行高 */
 .width50p {
   width: 50%
 }
 
 .lineh-20 {
   line-height: 20px
-}
-
-.ml25 {
-  margin-left: 25px
-}
-
-.pl46 {
-  padding-left: 46px
-}
-
-.pt0 {
-  padding-top: 0 !important
 }
 
 .height10 {
@@ -404,41 +449,21 @@ a {
   height: 18px
 }
 
-.pb28 {
-  padding-bottom: 28px
+.lh1,
+.lineheight1 {
+  line-height: 1
 }
 
-.mr60 {
-  margin-right: 60px
-}
-
-.mb40 {
-  margin-bottom: 40px
-}
-
+/* display */
 .inlineblock {
   display: inline-block
 }
 
-
-.mb15 {
-  margin-bottom: 15px !important
-}
-
-.pb20 {
-  padding-bottom: 20px !important
-}
-
-.pb30 {
-  padding-bottom: 30px !important
-}
-
-/* 隐藏 */
 .fn-hide {
   display: none;
 }
 
-/* 清理浮动 */
+/* 浮动 */
 .fn-clear:after {
   visibility: hidden;
   display: block;
@@ -452,7 +477,6 @@ a {
   zoom: 1;
 }
 
-/* 设置内联, 减少浮动带来的bug */
 .fn-left,
 .fn-right {
   display: inline;
@@ -466,14 +490,25 @@ a {
   float: right;
 }
 
-/*垂直居中*/
+/* 对齐 */
 .vm {
   vertical-align: middle !important
 }
 
-/*垂直居顶部*/
 .vt {
   vertical-align: top !important
+}
+
+.txt-center {
+  text-align: center !important
+}
+
+.txt-left {
+  text-align: left !important
+}
+
+.txt-right {
+  text-align: right !important
 }
 
 /*截字*/
@@ -493,7 +528,7 @@ a {
   white-space: nowrap;
 }
 
-/*相对定位*/
+/*定位*/
 .relative {
   position: relative;
 }
@@ -503,77 +538,100 @@ a {
   cursor: pointer;
 }
 
+/* 字体样式 */
+.fontArialyield {
+  display: inline-block;
+  line-height: 1;
+  vertical-align: top;
+  position: relative;
+  top: 1px
+}
+
+.font-yh {
+  font-family: 'Microsoft Yahei';
+}
+
+.number {
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.font-bold {
+  font-weight: bold !important;
+}
+
+.font-normal {
+  font-weight: normal !important
+}
+
+.font-arial {
+  font-family: Arial;
+}
+
+.text-line {
+  text-decoration: line-through;
+}
+
 /* 字体大小 */
 .font-12 {
-  font-size: 12px;
+  font-size: 12px !important;
   font-weight: normal;
 }
 
-/* 12号不加粗 */
 .font-12-b {
-  font-size: 12px;
+  font-size: 12px !important;
   font-weight: bold;
 }
 
-/* 12加粗 */
 .font-14 {
-  font-size: 14px;
+  font-size: 14px !important;
   font-weight: normal;
 }
 
-/* 14号不加粗 */
 .font-14-b {
-  font-size: 14px;
+  font-size: 14px !important;
   font-weight: bold;
 }
 
-/* 14号加粗 */
 .font-16 {
-  font-size: 16px;
+  font-size: 16px !important;
 }
 
-/* 16号 */
 .font-18 {
-  font-size: 18px;
+  font-size: 18px !important;
 }
 
-/* 18号 */
 .font-20 {
-  font-size: 20px;
+  font-size: 20px !important;
 }
 
-/* 20号 */
 .font-24 {
-  font-size: 24px;
+  font-size: 24px !important;
 }
 
-/* 24号 */
 .font-26 {
-  font-size: 26px;
+  font-size: 26px !important;
 }
 
-/* 26号 */
+.fontL,
 .font-28 {
-  font-size: 28px;
+  font-size: 28px !important;
 }
 
-/* 28号 */
 .font-30 {
-  font-size: 30px;
+  font-size: 30px !important;
 }
 
-/* 30号 */
-.fontL {
-  font-size: 28px
+/* 边线 */
+.linetop {
+  border-top: 1px solid #ebebeb;
 }
-
-.lh1 {
-  line-height: 1
-}
-
 
 .linetop_v1 {
   border-top: 1px solid #f5f5f5
+}
+
+.linebottom {
+  border-bottom: 1px solid #ebebeb;
 }
 
 .linebottom_v1 {
@@ -584,81 +642,12 @@ a {
   border-right: 1px solid #f5f5f5
 }
 
-.fontArialyield {
-  display: inline-block;
-  line-height: 1;
-  vertical-align: top;
-  position: relative;
-  top: 1px
-}
-
-
-/* 字体样式 */
-.font-yh {
-  font-family: 'Microsoft Yahei';
-}
-
-.number {
-  font-family: Arial, Helvetica, sans-serif
-}
-
-
-.font-12 {
-  font-size: 12px !important
-}
-
-.font-normal {
-  font-weight: normal !important
-}
-
-.grey-lighterer {
-  color: #e6e6e6 !important
-}
-
-
-/* 雅黑字体 */
-.font-arial {
-  font-family: Arial;
-}
-
-/* Arial字体 */
-.font-bold {
-  font-weight: bold;
-}
-
-.text-line {
-  text-decoration: line-through;
-}
-
-/* 删除线 */
-/* 对齐 */
-.txt-center {
-  text-align: center;
-}
-
-.txt-left {
-  text-align: left;
-}
-
-.txt-right {
-  text-align: right;
-}
-
-/* 边线 */
-.linebottom {
-  border-bottom: 1px solid #ebebeb;
-}
-
 .linebottomdoted {
   border-bottom: 1px dotted #bfbfbf;
 }
 
 .linerightdoted {
   border-right: 1px dotted #bfbfbf;
-}
-
-.linetop {
-  border-top: 1px solid #ebebeb;
 }
 
 /* 表单定义 */
