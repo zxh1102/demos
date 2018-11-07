@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    canvas {
+      border: 1px solid pink;
+      display: block;
+      margin: 50px auto
+    }
+
+  </style>
+  <section>
+    <canvas id="canvas1">画一个五角星</canvas>
+  </section>
+  <script>
+    // 页面加载完成后加载内容
+    window.onload = function () {
+      // 获取画布
+      let canvas = document.querySelector("#canvas1")
+      canvas.width = 800
+      canvas.height = 800
+      /* 判断是否支持canvas
+       * if (canvas.getContext){
+       *  var ctx = canvas.getContext('2d');
+       * }else{return false}
+       * */
+      // 渲染上下文
+      let cxt = canvas.getContext("2d")
+      // 纯色背景
+      cxt.fillStyle = '#000'
+      cxt.fillRect(0, 0, canvas.width, canvas.height)
+      cxt.fill()
+
+      for (let i = 0; i < 100; i++) {
+
+        let x = Math.random() * canvas.width
+        let y = Math.random() * canvas.height
+        let r = Math.random() * 20
+        let rot = Math.random() * 72
+        drawStars(cxt, x, y, r, rot)
+      }
+    }
+    // 绘制星星 function (画布, 圆心横坐标, 圆心纵坐标, 内圆半径, 外圆半径, 偏移角度) 
+    var drawStars = function (cxt, x, y, r, rot) {
+      /* 图形变换
+       * 位移 translate(a,y)
+       * 旋转 rotate(deg)
+       * 缩放 scale(sx,sy) 对图片的所有属性都会进行缩放 
+       * 使用后应该在结尾把图形变换逆转过来，否则效果会叠加出现
+       * 或者.save() 与 .restore()成对出现 绘图状态的 保存 和 恢复
+       */
+      // 绘制基本轮廓
+      cxt.save()
+
+      cxt.translate(x, y)
+      cxt.rotate(rot / 180 * Math.PI)
+      cxt.scale(r, r) // scale会对边框也有缩放作用，所以这里只能放弃边框部分
+
+      starPath(cxt)
+
+      cxt.restore()
+
+      cxt.fillStyle = 'yellow'
+      // cxt.strokeStyle = 'yellow'
+      // cxt.lineWidth = 3
+      // cxt.lineJoin = 'round'
+
+      cxt.fill()
+      // cxt.stroke()
+
+
+    }
+    // 绘制一个五角星
+    var starPath = function (cxt) {
+
+      // 开始
+      cxt.beginPath();
+      for (let i = 0; i < 5; i++) {
+        /* 先找到一共十个点
+         * 外层五个顶点公式 x = cos(i+72+rot)deg*R; y = -sin(i+72+rot)deg*R
+         * 内层五个顶点公式 x = cos(i+72+rot+36)deg*R; y = -sin(i+72+rot+36)deg*R
+         */
+        // 20deg = 20/180*Math.Pi 
+        cxt.lineTo(Math.cos((i * 72) / 180 * Math.PI),
+          -Math.sin((i * 72) / 180 * Math.PI))
+        cxt.lineTo(Math.cos((i * 72 + 36) / 180 * Math.PI) * 0.5,
+          -Math.sin((i * 72 + 36) / 180 * Math.PI) * 0.5)
+      }
+      cxt.closePath()
+      // 结束
+    }
+
+  </script>
+</body>
+
+</html>

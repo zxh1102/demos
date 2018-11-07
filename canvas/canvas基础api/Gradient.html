@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    canvas {
+      border: 1px solid pink;
+      display: block;
+      margin: 50px auto
+    }
+
+  </style>
+  <section>
+    <canvas id="canvas1">渐变</canvas>
+  </section>
+  <script>
+    // 页面加载完成后加载内容
+    window.onload = function () {
+      // 获取画布
+      let canvas = document.querySelector("#canvas1")
+      canvas.width = 800
+      canvas.height = 800
+      // 2D画布
+      let cxt = canvas.getContext("2d")
+
+      /* 线性渐变 fillStyle
+       *  step1 
+       *  var grd = cxt.creteLinearGradient(xStart,yStart,xEnd,yEnd) 渐变线
+       *  step2 
+       *  grd.addColorStop(stop,color) stop:关键色的位置
+       * */
+      cxt.beginPath()
+      var g1 = cxt.createLinearGradient(0, 0, 0, canvas.height);
+      g1.addColorStop(0, '#E55D87');
+      g1.addColorStop(.5, 'pink');
+      g1.addColorStop(1, '#5FC3E4');
+      cxt.fillStyle = g1;
+      cxt.fillRect(0, 0, canvas.width, canvas.height);
+      cxt.closePath()
+
+
+      /* 
+       * 径向渐变 radial Gradient
+       * step1 
+       * var grd = cxt.creteRadialtGradient(x0,y0,r0,x1,y1,r1)  定义了两个圆环
+       * step2 
+       * grd.addColorStop(stop,color) stop:关键色的位置
+       *
+       * */
+      cxt.beginPath()
+      // 同心圆径向渐变
+      var g2 = cxt.createRadialGradient(200, 150, 0, 200, 150, 200);
+      g2.addColorStop(0, 'black');
+      g2.addColorStop(1, 'white');
+      cxt.fillStyle = g2;
+      cxt.beginPath();
+      cxt.arc(200, 150, 100, 0, Math.PI * 2, true);
+      cxt.fill();
+      cxt.closePath();
+    }
+
+  </script>
+</body>
+
+</html>

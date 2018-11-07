@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>用不同元素填充</title>
+</head>
+
+<body>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    canvas {
+      border: 1px solid pink;
+      display: block;
+      margin: 50px auto
+    }
+
+  </style>
+  <section>
+    <canvas id="canvas1">image背景</canvas>
+    <canvas id="canvas2">canvas背景</canvas>
+    <canvas id="canvas3">video背景</canvas>
+  </section>
+  <script>
+    // 绘制一个五角星
+    var starPath = function (cxt) {
+      // 开始
+      cxt.beginPath();
+      for (let i = 0; i < 5; i++) {
+        cxt.lineTo(Math.cos((i * 72) / 180 * Math.PI),
+          -Math.sin((i * 72) / 180 * Math.PI))
+        cxt.lineTo(Math.cos((i * 72 + 36) / 180 * Math.PI) * 0.5,
+          -Math.sin((i * 72 + 36) / 180 * Math.PI) * 0.5)
+      }
+      cxt.closePath()
+      // 结束
+    }
+    var drawStars = function (cxt, x, y, r, rot) {
+      // 绘制基本轮廓
+      cxt.save()
+      cxt.translate(x, y)
+      cxt.rotate(rot / 180 * Math.PI)
+      cxt.scale(r, r) // scale会对边框也有缩放作用，所以这里只能放弃边框部分
+      starPath(cxt)
+      cxt.restore()
+      cxt.fillStyle = 'yellow'
+      cxt.fill()
+    }
+    // 创建canvas北京画布
+    var createBackgrpundCanvas = function () {
+      var backCanvas = document.createElement('canvas')
+      backCanvas.width = 100
+      backCanvas.height = 100
+      var backCanvasCxt = backCanvas.getContext('2d')
+      drawStars(backCanvasCxt, 50, 50, 50, 18)
+      return backCanvas
+    }
+
+    // 页面加载完成后加载内容
+    window.onload = function () {
+      // 获取画布
+      let canvas = document.querySelector("#canvas1")
+      canvas.width = 800
+      canvas.height = 800
+      // 渲染上下文
+      let cxt = canvas.getContext("2d")
+      // createPattern.(对象,repeat-style)
+      // image
+      var backgroundImage = new Image()
+      backgroundImage.src = 'http://10.168.66.123:9090/out/zhouxiaohang/M%20%E6%8A%A2%E8%B4%AD%E8%BD%A6%E5%88%B8/img/bg_2.jpg'
+      backgroundImage.onload = function () {
+        var pattern = cxt.createPattern(backgroundImage, 'repeat')
+        cxt.fillStyle = pattern
+        cxt.fillRect(0, 0, canvas.width, canvas.height)
+      }
+
+
+      let canvas2 = document.querySelector("#canvas2")
+      canvas2.width = 800
+      canvas2.height = 800
+      // 渲染上下文
+      let cxt2 = canvas2.getContext("2d")
+      // canvas
+      var backgroundCanvas = createBackgrpundCanvas();
+      var pattern2 = cxt2.createPattern(backgroundCanvas, 'repeat')
+      cxt2.fillStyle = pattern2
+      cxt2.fillRect(0, 0, canvas2.width, canvas2.height)
+
+      // vedio
+    }
+
+  </script>
+</body>
+
+</html>
