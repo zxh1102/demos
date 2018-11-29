@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    canvas {
+      border: 1px solid pink;
+      display: block;
+      margin: 50px auto
+    }
+
+  </style>
+  <section>
+    <canvas id="canvas1">绘制曲线</canvas>
+  </section>
+  <script>
+    // 页面加载完成后加载内容
+    window.onload = function () {
+      // 获取画布
+      let canvas = document.querySelector("#canvas1")
+      // 2D画布
+      let cxt = canvas.getContext("2d")
+      // 设置一些参数 
+      var count = 8
+      var r = 40
+      var margin = 20
+      var colors = ['tomato', 'salmon', 'pink', 'thistle', 'lavenderblush', 'aliceblue', 'antiquewhite', 'gray']
+      var caseNum = 8
+
+      // 根据内容填充宽高
+      canvas.width = (r * 2 + margin) * count + 2 * margin
+      canvas.height = (r * 2 + margin) * caseNum + margin
+
+      // cxt.miterLimit = 0 // 数值 最大斜接长度
+      cxt.fillStyle = 'blue'
+      cxt.lineWidth = 10
+
+      /* 
+       * 绘制弧线
+       * context.arc(
+       *  contextX, 圆心x
+       *  contextY, 圆心y
+       *  radius, 半径
+       *  startingAngle, 起始角度
+       *  endingAngle, 结束角度
+       *  anticlockwise = false 可选参数（是否逆时针绘制）
+       * )
+       * */
+      for (var i = 0; i < caseNum; i++) {
+        for (let j = 0; j < count; j++) {
+          cxt.beginPath()
+          cxt.arc(mathX(r, j, margin), mathY(r, i, margin), r, 0, 2 * Math.PI / count * (j + 1))
+
+          switch (i) {
+            case 0:
+              // 最基本画法
+              cxt.strokeStyle = colors[j]
+              cxt.stroke()
+              break;
+            case 1:
+              // 加入closePath()
+              cxt.closePath()
+              cxt.strokeStyle = colors[j]
+              cxt.stroke()
+              break;
+            case 2:
+              // 先 画边 再 填充颜色
+              cxt.strokeStyle = colors[j]
+              cxt.fillStyle = colors[j - 1]
+              cxt.stroke()
+              cxt.fill()
+              break;
+            case 3:
+              // 先 填充颜色 再 画边
+              cxt.strokeStyle = colors[j]
+              cxt.fillStyle = colors[j - 1]
+              cxt.fill()
+              cxt.stroke()
+              break;
+            case 4:
+              //  加入closePath()
+              cxt.closePath()
+              cxt.strokeStyle = colors[j]
+              cxt.fillStyle = colors[j - 1]
+              cxt.fill()
+              cxt.stroke()
+              break;
+            case 5:
+              // 线段终点样式
+              // butt（默认） round square 结束端点样式
+              cxt.lineCap = 'square'
+              cxt.strokeStyle = colors[j]
+              cxt.fillStyle = colors[j - 1]
+              cxt.fill()
+              cxt.stroke()
+              break;
+            case 6:
+              cxt.closePath()
+              cxt.beginPath()
+
+              // 线段折角样式
+              // bevel round miter （默认） 拐角类型
+              cxt.lineJoin = 'round'
+              cxt.lineTo(50, 650)
+              cxt.lineTo(100, 650)
+              cxt.lineTo(100, 700)
+              cxt.lineTo(50, 650)
+              cxt.stroke()
+              cxt.closePath()
+              break;
+            case 7:
+              // 逆时针绘制
+              cxt.clearRect(mathX(r, j, margin) - r, mathY(r, i, margin) - r, canvas.width, 2 * r)
+              cxt.beginPath()
+              cxt.arc(mathX(r, j, margin), mathY(r, i, margin), r, 0, 2 * Math.PI / count * (j + 1), true)
+
+              cxt.strokeStyle = 'pink'
+              cxt.closePath()
+              cxt.stroke()
+              break;
+            default:
+              return false;
+          }
+        }
+      }
+    }
+
+    var mathX = function (numR, numI, numMar) {
+      return (numI * 2 + 1) * numR + numR + numI * numMar
+    }
+    var mathY = function (numR, numI, numMar) {
+      return (2 * numI + 1) * numR + (numI + 1) * numMar
+    }
+
+  </script>
+</body>
+
+</html>

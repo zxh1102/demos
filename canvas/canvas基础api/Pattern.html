@@ -25,7 +25,16 @@
   <section>
     <canvas id="canvas1">image背景</canvas>
     <canvas id="canvas2">canvas背景</canvas>
-    <canvas id="canvas3">video背景</canvas>
+    <!-- 
+      图形填充样式
+      fillStyle = color
+                  gradient
+                  image
+                  canvas
+                  vedio
+      
+      同理 图形边框样式 strokeStyle
+     -->
   </section>
   <script>
     // 绘制一个五角星
@@ -44,10 +53,12 @@
     var drawStars = function (cxt, x, y, r, rot) {
       // 绘制基本轮廓
       cxt.save()
+
       cxt.translate(x, y)
       cxt.rotate(rot / 180 * Math.PI)
       cxt.scale(r, r) // scale会对边框也有缩放作用，所以这里只能放弃边框部分
       starPath(cxt)
+
       cxt.restore()
       cxt.fillStyle = 'yellow'
       cxt.fill()
